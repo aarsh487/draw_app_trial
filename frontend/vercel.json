@@ -1,6 +1,6 @@
 {
     "rewrites": [
-      { "source": "/api/(.*)", "destination": "https://draw-app-trial-p2c1.vercel.app/api/$1" }
+      { "source": "/api/(.*)", "destination": "https://draw-app-trial.onrender.com/:path" }
     ]
   }
   
