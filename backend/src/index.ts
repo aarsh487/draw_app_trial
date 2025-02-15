@@ -7,8 +7,12 @@ import { JWT_SECRET } from "./config";
 import prisma from "./db/connectDb";
 import { RoomSchema, SignInSchema, SignUpSchema } from "./types/schema";
 import { WebSocket, WebSocketServer } from 'ws';
+import { createServer } from "http";
+
 
 const app = express();
+
+const server = createServer(app);
 
 app.use(express.json());
 app.use(cors({ origin: "https://draw-app-trial.vercel.app" }));
@@ -184,7 +188,7 @@ app.delete("/canvas/clear/:roomId", async (req, res) => {
 });
 
 
-const wss = new WebSocketServer({ port: 8080 });
+const wss = new WebSocketServer({ server });
 
 interface User {
     ws: WebSocket;
@@ -308,4 +312,6 @@ wss.on('connection', function connection(ws, request){
 })
 
 
-export default app;
+server.listen(8080, () => {
+  console.log("Server running on port 8080");
+});
