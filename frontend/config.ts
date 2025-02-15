@@ -1,6 +1,6 @@
 
-export const HTTP_BACKEND = "http://localhost:5000"
-export const WS_URL = "ws://localhost:8080";
+export const HTTP_BACKEND = "https://draw-app-trial-p2c1.vercel.app:5000"
+export const WS_URL = "https://draw-app-trial-p2c1.vercel.app:8080";
 
 import axios from 'axios';
 
