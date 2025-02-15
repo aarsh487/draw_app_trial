@@ -1,6 +1,6 @@
 {
     "rewrites": [
-      { "source": "/api/(.*)", "destination": "https://draw-app-trial.onrender.com/:path" }
+      { "source": "/api/:path*", "destination": "https://draw-app-trial.onrender.com/:path" }
     ]
   }
   
