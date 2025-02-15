@@ -1,0 +1,1 @@
+{"root":["./src/config.ts","./src/index.ts","./src/middlewate.ts","./src/db/connectdb.ts","./src/types/schema.ts","./src/types/types.ts"],"version":"5.7.3"}
