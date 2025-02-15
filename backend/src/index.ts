@@ -11,8 +11,7 @@ import { WebSocket, WebSocketServer } from 'ws';
 const app = express();
 
 app.use(express.json());
-app.use(cors());
-
+app.use(cors({ origin: "https://draw-app-trial.vercel.app" }));
 
 app.post("/signup", async (req, res) => {
   try {
