@@ -308,6 +308,5 @@ wss.on('connection', function connection(ws, request){
     })
 })
 
-app.listen(5000, () => {
-  console.log("hello form server 5000");
-});
+
+export default app;
