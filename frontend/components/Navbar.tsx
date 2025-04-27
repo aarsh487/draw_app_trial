@@ -34,7 +34,7 @@ export const Navbar = () => {
               <Link
                 key={nav.id}
                 href={nav.id}
-                className="text-neutral-700 undreline underline-offset-4"
+                className="text-neutral-700 underline underline-offset-4"
               >
                 {nav.name}
               </Link>

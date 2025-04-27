@@ -7,21 +7,22 @@ import { Cloudy, Handshake, Palette } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 export const Hero = () => {
-
-    const [token, setToken] = useState<string | null>(null);
-  
-    useEffect(() => {
-      const storedToken = localStorage.getItem('authorization');
-      setToken(storedToken);
-    }, []);
+  const [token, setToken] = useState<string | null>(null);
   const router = useRouter();
 
   const routeToRooms = () => {
-    if(token){
-      router.push('/create-room')
+    if (!token) {
+      router.push("/signin");
+      return;
     }
-    router.push('/signin')
-  }
+    router.push("/create-room");
+  };
+
+  useEffect(() => {
+    const storedToken = localStorage.getItem("authorization");
+    setToken(storedToken);
+  }, [router]);
+
   return (
     <section className="min-h-screen bg-gradient-to-br from-[#f7f9fb] to-[#e0e7ef] flex flex-col overflow-hidden">
       {/* Hero Section */}
@@ -57,7 +58,7 @@ export const Hero = () => {
               <Button
                 variant="primary"
                 className="px-6 rounded-full text-white text-lg"
-                onClick={() => (routeToRooms())}
+                onClick={() => routeToRooms()}
               >
                 Create Room
               </Button>
@@ -98,8 +99,12 @@ export const Hero = () => {
           <div className="grid md:grid-cols-3 gap-10">
             {/* Feature 1 */}
             <div className="p-8 flex flex-col items-center gap-2 bg-gray-50 rounded-2xl hover:shadow-xl transition-all">
-            <div className="text-orange-400 text-4xl mb-2"><Palette size={40} /></div>
-            <h3 className="font-bold text-xl text-black">Intuitive Interface</h3>
+              <div className="text-orange-400 text-4xl mb-2">
+                <Palette size={40} />
+              </div>
+              <h3 className="font-bold text-xl text-black">
+                Intuitive Interface
+              </h3>
               <p className="text-gray-500">
                 Simple and easy-to-use drawing tools that feel natural and
                 powerful.
@@ -109,7 +114,9 @@ export const Hero = () => {
             {/* Feature 2 */}
             <div className="p-8 flex flex-col items-center gap-2 bg-gray-50 rounded-2xl hover:shadow-xl transition-all">
               {/* <div className="text-pink-400 text-4xl mb-4">🤝</div> */}
-              <div className="text-orange-400 text-4xl mb-2"><Handshake size={40} /></div>
+              <div className="text-orange-400 text-4xl mb-2">
+                <Handshake size={40} />
+              </div>
               <h3 className="font-bold text-xl text-black">
                 Real-Time Collaboration
               </h3>
@@ -122,7 +129,9 @@ export const Hero = () => {
             {/* Feature 3 */}
             <div className="p-8 flex flex-col items-center gap-2 bg-gray-50 rounded-2xl hover:shadow-xl transition-all">
               {/* <div className="text-blue-400 text-4xl mb-4">☁️</div> */}
-              <div className="text-orange-400 text-4xl mb-2"><Cloudy size={40} /></div>
+              <div className="text-orange-400 text-4xl mb-2">
+                <Cloudy size={40} />
+              </div>
 
               <h3 className="font-bold text-xl text-black">Cloud Storage</h3>
               <p className="text-gray-500">
@@ -178,7 +187,7 @@ export const Hero = () => {
         <Button
           variant="primary"
           className="px-8 rounded-full text-white text-lg"
-          onClick={() => (routeToRooms())}
+          onClick={() => routeToRooms()}
         >
           Create Your Room Now
         </Button>
