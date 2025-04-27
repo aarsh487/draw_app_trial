@@ -2,7 +2,7 @@
 
 
 @theme {
-  --color-primary: #9b87f5;
+  --color-primary: #ff6900;
   --color-secondary: #f5f3fe;
   --color-onHover: #7c6bab;
 }
@@ -26,11 +26,6 @@ body {
   background: var(--background);
 }
 
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
 
 .imgDark {
   display: none;
