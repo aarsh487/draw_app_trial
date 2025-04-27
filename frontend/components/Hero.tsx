@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Button } from "../ui/Button";
@@ -8,7 +8,12 @@ import { useRouter } from "next/navigation";
 
 export const Hero = () => {
 
-  const token = localStorage.getItem('authorization')
+    const [token, setToken] = useState<string | null>(null);
+  
+    useEffect(() => {
+      const storedToken = localStorage.getItem('authorization');
+      setToken(storedToken);
+    }, []);
   const router = useRouter();
 
   const routeToRooms = () => {

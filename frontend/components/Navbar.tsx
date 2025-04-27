@@ -1,10 +1,9 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Menu } from "lucide-react";
 import Link from "next/link";
 import { twMerge } from "tailwind-merge";
-import { Button } from "@/ui/Button";
 
 const navLinks = [
   { name: "Home", id: "/" },
@@ -12,7 +11,12 @@ const navLinks = [
 ];
 
 export const Navbar = () => {
-  const token = localStorage.getItem("authorization");
+  const [token, setToken] = useState<string | null>(null);
+
+  useEffect(() => {
+    const storedToken = localStorage.getItem('authorization');
+    setToken(storedToken);
+  }, []);
 
   return (
     <header className="bg-white fixed w-full top-0 z-50 backdrop-blur-sm border-b border-white p-2">
