@@ -1,3 +1,5 @@
+"use client";
+
 import { CreateRoom } from "../../components/CreateRoom";
 
 function page() {

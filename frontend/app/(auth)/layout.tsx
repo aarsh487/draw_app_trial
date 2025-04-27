@@ -6,7 +6,7 @@ function layout({ children }:  Readonly<{
   }>) {
   return (
     <div className='h-screen bg-gradient-to-tr from-slate-50 to-violet-50'>
-      <Navbar />
+        <Navbar />
         {children}
     </div>
   )
