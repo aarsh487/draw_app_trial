@@ -4,8 +4,19 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { Button } from "../ui/Button";
 import { Cloudy, Handshake, Palette } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export const Hero = () => {
+
+  const token = localStorage.getItem('authorization')
+  const router = useRouter();
+
+  const routeToRooms = () => {
+    if(token){
+      router.push('/create-room')
+    }
+    router.push('/signin')
+  }
   return (
     <section className="min-h-screen bg-gradient-to-br from-[#f7f9fb] to-[#e0e7ef] flex flex-col overflow-hidden">
       {/* Hero Section */}
@@ -41,6 +52,7 @@ export const Hero = () => {
               <Button
                 variant="primary"
                 className="px-6 rounded-full text-white text-lg"
+                onClick={() => (routeToRooms())}
               >
                 Create Room
               </Button>
@@ -161,6 +173,7 @@ export const Hero = () => {
         <Button
           variant="primary"
           className="px-8 rounded-full text-white text-lg"
+          onClick={() => (routeToRooms())}
         >
           Create Your Room Now
         </Button>

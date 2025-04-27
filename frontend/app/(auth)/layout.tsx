@@ -1,3 +1,4 @@
+import { Navbar } from '@/components/Navbar';
 import React from 'react'
 
 function layout({ children }:  Readonly<{
@@ -5,6 +6,7 @@ function layout({ children }:  Readonly<{
   }>) {
   return (
     <div className='h-screen bg-gradient-to-tr from-slate-50 to-violet-50'>
+      <Navbar />
         {children}
     </div>
   )

@@ -1,14 +1,18 @@
+"use client";
+
 import React from "react";
 import { Menu } from "lucide-react";
 import Link from "next/link";
 import { twMerge } from "tailwind-merge";
+import { Button } from "@/ui/Button";
+
+const navLinks = [
+  { name: "Home", id: "/" },
+  { name: "Rooms", id: "/create-room" },
+];
 
 export const Navbar = () => {
-  const navLinks = [
-    { name: "Home", id: "/" },
-    { name: "Rooms", id: "/create-room" },
-    { name: "Canvas", id: "/canvas" },
-  ];
+  const token = localStorage.getItem("authorization");
 
   return (
     <header className="bg-white fixed w-full top-0 z-50 backdrop-blur-sm border-b border-white p-2">
@@ -21,15 +25,16 @@ export const Navbar = () => {
         </Link>
 
         <nav className="hidden md:flex items-center gap-10">
-          {navLinks.map((nav) => (
-            <Link
-              key={nav.id}
-              href={nav.id}
-              className="text-neutral-800 underline underline-offset-4"
-            >
-              {nav.name}
-            </Link>
-          ))}
+          {token &&
+            navLinks.map((nav) => (
+              <Link
+                key={nav.id}
+                href={nav.id}
+                className="text-neutral-700 undreline underline-offset-4"
+              >
+                {nav.name}
+              </Link>
+            ))}
         </nav>
 
         {/* Mobile Menu */}
